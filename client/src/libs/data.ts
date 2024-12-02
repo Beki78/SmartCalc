@@ -58,8 +58,58 @@ export const Scientific_Calculator_Options = [
     name: "Constants",
     path: "/constants",
   },
+];
+export const Unit_Conversion_Options = [
   {
-    name: "Radians & Degrees",
-    path: "/radians-degrees",
+    name: "Length",
+    path: "/length",
+  },
+  {
+    name: "Temperature",
+    path: "/temperature",
+  },
+  {
+    name: "Weight",
+    path: "/weight",
+  },
+  {
+    name: "Time",
+    path: "/time",
+  },
+  {
+    name: "Volume",
+    path: "/volume",
+  },
+];
+export const Financial_Calculation_Options = [
+  {
+    name: "EMI",
+    path: "/emi",
+  },
+  {
+    name: "Compound Interest",
+    path: "/compound_interest",
+  },
+  {
+    name: "Profit Margin",
+    path: "/profit_margin",
+  },
+];
+export const Graph_Calculation_Options = [
+  {
+    name: "Quadratic",
+    path: "/quadratic",
+  },
+  {
+    name: "Logarithmic",
+    path: "/logarithmic",
+  },
+  {
+    name: "Trigonometric",
+    path: "/compound_interest",
+  },
+  {
+    name: "Profit Margin",
+    path: "/profit_margin",
   },
 ];
