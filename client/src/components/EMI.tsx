@@ -1,12 +1,10 @@
-"use client"
-
 import React, { useState } from "react";
 
 const EMI = () => {
-  const [principal, setPrincipal] = useState("");
-  const [rate, setRate] = useState("");
-  const [tenure, setTenure] = useState("");
-  const [emi, setEmi] = useState(null);
+  const [principal, setPrincipal] = useState<string>("");
+  const [rate, setRate] = useState<string>("");
+  const [tenure, setTenure] = useState<string>("");
+  const [emi, setEmi] = useState<string | null>(null); // Allow emi to be either string or null
 
   const calculateEMI = () => {
     const P = parseFloat(principal); // Principal amount
@@ -79,7 +77,12 @@ const EMI = () => {
         >
           Calculate EMI
         </button>
-        
+        <button
+          onClick={resetFields}
+          className="px-4 py-2 bg-gray-500 text-white rounded"
+        >
+          Reset
+        </button>
       </div>
       {emi !== null && (
         <div className="mt-4 p-3 bg-green-100 border rounded">
