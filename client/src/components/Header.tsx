@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ title, description }) => {
 
         <button
           onClick={toggleTheme}
-          className="theme-toggle p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="theme-toggle p-2 rounded focus:outline-none "
           aria-label="Toggle theme"
         >
           {theme === "light" ? (

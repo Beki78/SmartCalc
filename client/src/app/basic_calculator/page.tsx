@@ -11,18 +11,16 @@ const Pages = () => {
         title={calculator_category[0].name}
         description={calculator_category[0].info}
       />
-      <div className="flex">
-        {/* Calculator section */}
-        <div className="w-3/5">
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-full lg:w-3/5">
           <Calculator />
         </div>
 
-        {/* Description section */}
-        <div className="w-2/5 min-h-full">
+        <div className="w-full lg:w-2/5 ">
           <h1 className="text-sm bg-gray-100 dark:text-white dark:bg-slate-700 p-4">
             ℹ️This calculator is a simple and user-friendly tool designed to
             handle basic arithmetic operations such as addition, subtraction,
-            multiplication, and division. Whether you're solving everyday math
+            multiplication, and division. Whether you&apos;re solving everyday math
             problems or just need quick calculations, this app provides an
             intuitive interface for your needs.
           </h1>

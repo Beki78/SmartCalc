@@ -87,7 +87,7 @@ const Trigonometric = () => {
         Calculate
       </button>
       {result && (
-        <div className="mt-4 p-2 bg-gray-200 dark:bg-gray-700 rounded dark:text-white">
+        <div className="mt-4 p-2 bg-green-200 dark:bg-green-200 rounded dark:text-black">
           <strong>Result:</strong> {result}
         </div>
       )}

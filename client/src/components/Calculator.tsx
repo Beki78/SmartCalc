@@ -1,24 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
-import { useStore } from "../store/store"; // Assuming you already have a store for theme management
-import { FiSun, FiMoon } from "react-icons/fi"; // Icons for sun and moon
+import { useStore } from "../store/store";
 
 const Calculator: React.FC = () => {
-  const { theme, setTheme } = useStore(); // Access theme and setTheme from your store
+  const { theme } = useStore();
   const [input, setInput] = useState<string>("");
 
   const handleButtonClick = (value: string) => {
     if (value === "C") {
-      setInput(""); // Clear input
+      setInput("");
     } else if (value === "=") {
       try {
-        setInput(eval(input).toString()); // Use eval carefully or replace with a safe math library
+        setInput(eval(input).toString());
       } catch {
-        setInput("Error"); // Handle any errors in calculation
+        setInput("Error");
       }
     } else {
-      setInput(input + value); // Append the value to the input
+      setInput(input + value);
     }
   };
 
@@ -41,19 +40,13 @@ const Calculator: React.FC = () => {
     "+",
   ];
 
- 
-
   return (
     <div className={`${theme === "dark" ? "dark" : ""}`}>
       <div
-        className={`min-h-screen flex flex-col items-center justify-center ${
-          theme === "light"
-            ? "bg-white text-black"
-            : "bg-gray-900 text-white"
+        className={`min-h-screen flex flex-col items-center justify-center w-full ${
+          theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"
         }`}
       >
-        
-
         {/* Calculator */}
         <div className="w-full max-w-md p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
           <input
