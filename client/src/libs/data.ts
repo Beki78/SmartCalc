@@ -106,10 +106,14 @@ export const Graph_Calculation_Options = [
   },
   {
     name: "Trigonometric",
-    path: "/compound_interest",
+    path: "/trigonometric",
   },
   {
-    name: "Profit Margin",
-    path: "/profit_margin",
+    name: "Absolute Value",
+    path: "/absolute_value",
+  },
+  {
+    name: "Polynomial",
+    path: "/polynomial",
   },
 ];
