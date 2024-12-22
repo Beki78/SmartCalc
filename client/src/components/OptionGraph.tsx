@@ -19,7 +19,7 @@ const OptionGraph: React.FC<OptionsProps> = ({ options, title }) => {
         {options.map((item, index) => (
           <li key={index} className="cursor-pointer w-1/2 mx-auto ">
             <Link
-              href={"/graph_conversion" + item.path}
+              href={"/graph_calculator" + item.path}
               className={`block p-2 rounded-md py-4 ${
                 theme === "dark"
                   ? "hover:bg-gray-500 text-white bg-gray-700"
