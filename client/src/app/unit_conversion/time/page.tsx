@@ -1,13 +1,7 @@
 import Header from "@/components/Header";
 import React from "react";
 import { calculator_category } from "@/libs/data";
-import Calculator from "@/components/Calculator";
 import AIChat from "@/components/AIChat";
-import Trigonometric from "@/components/Trigonometric";
-import ExponentsAndRoots from "@/components/Exponents_and_Roots";
-import Length from "@/components/Length";
-import Temperature from "@/components/Temprature";
-import Weight from "@/components/Weight";
 import Time from "@/components/Time";
 
 const Pages = () => {
@@ -31,7 +25,7 @@ const Pages = () => {
             time value and convert it between different units, such as seconds,
             minutes, hours, and days. With a seamless interface, users can
             quickly select the input and output units to obtain accurate
-            results. Whether you're solving time-related problems, scheduling
+            results. Whether you&apos;re solving time-related problems, scheduling
             events, or working on scientific calculations, this tool ensures
             fast and reliable conversions. Perfect for students, professionals,
             and anyone needing quick and accurate time calculations.
