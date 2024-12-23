@@ -13,7 +13,6 @@ import { evaluate } from "mathjs";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
-// Define the type for graph data
 interface GraphData {
   labels: number[];
   datasets: {
@@ -27,16 +26,13 @@ interface GraphData {
 
 const Quadratic = () => {
   const [equation, setEquation] = useState<string>("");
-  const [graphData, setGraphData] = useState<GraphData | null>(null); // Allow graphData to be either GraphData type or null
+  const [graphData, setGraphData] = useState<GraphData | null>(null);
 
   const plotGraph = () => {
     try {
-      // Generate X values (from -100 to 100)
-      const xValues = Array.from({ length: 201 }, (_, i) => i - 100); // [-100 to 100]
-      // Generate Y values by evaluating the equation
+      const xValues = Array.from({ length: 201 }, (_, i) => i - 100); 
       const yValues = xValues.map((x) => evaluate(equation, { x }));
 
-      // Prepare data for the graph
       const data: GraphData = {
         labels: xValues,
         datasets: [
@@ -51,13 +47,14 @@ const Quadratic = () => {
       };
 
       setGraphData(data);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       alert("Invalid equation! Please enter a valid quadratic equation.");
     }
   };
 
   return (
-    <div className="p-8 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-8 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-2xl font-semibold mb-4 text-center dark:text-white">
         Quadratic Graph Plotter
       </h2>
@@ -82,7 +79,7 @@ const Quadratic = () => {
         </button>
       </div>
       {graphData && (
-        <div className="mt-6">
+        <div className="mt-6  ">
           <Line
             data={graphData}
             options={{

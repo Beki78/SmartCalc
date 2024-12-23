@@ -10,7 +10,7 @@ const CompoundInterest = () => {
 
   const calculateCompoundInterest = () => {
     const P = parseFloat(principal);
-    const r = parseFloat(rate) / 100; // Convert percentage to decimal
+    const r = parseFloat(rate) / 100;
     const t = parseFloat(time);
     const n = parseInt(compoundsPerYear);
 
@@ -19,7 +19,6 @@ const CompoundInterest = () => {
       return;
     }
 
-    // Compound interest formula: A = P(1 + r/n)^(n*t)
     const A = P * Math.pow(1 + r / n, n * t);
     const CI = A - P;
 
@@ -29,7 +28,7 @@ const CompoundInterest = () => {
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-2xl font-semibold text-center mb-4 dark:text-white">
         Compound Interest Calculator
       </h2>
@@ -85,8 +84,8 @@ const CompoundInterest = () => {
       >
         Calculate
       </button>
-      <div className="mt-4 text-lg font-medium dark:text-white">
-        {result && <p className="dark:text-white">{result}</p>}
+      <div className="mt-4 bg-green-100 p-3 rounded-md dark:text-black">
+        {result && <p className="">{result}</p>}
       </div>
     </div>
   );

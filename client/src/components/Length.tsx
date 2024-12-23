@@ -1,17 +1,8 @@
 "use client";
+import { conversionFactors } from "@/types/types";
 import React, { useState } from "react";
 
-// Conversion factors relative to meters
-const conversionFactors: { [key: string]: number } = {
-  meter: 1,
-  kilometer: 0.001,
-  centimeter: 100,
-  millimeter: 1000,
-  mile: 0.000621371,
-  yard: 1.09361,
-  foot: 3.28084,
-  inch: 39.3701,
-};
+
 
 const Length: React.FC = () => {
   const [inputValue, setInputValue] = useState<number | string>("");
@@ -33,7 +24,7 @@ const Length: React.FC = () => {
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-xl font-bold mb-4 text-center dark:text-white">
         Length Converter
       </h2>
@@ -105,7 +96,7 @@ const Length: React.FC = () => {
       </button>
 
       {result && (
-        <div className="mt-4 p-3 bg-green-100 border rounded text-green-700">
+        <div className="mt-4 p-3 bg-green-100 border rounded text-black">
           {result}
         </div>
       )}

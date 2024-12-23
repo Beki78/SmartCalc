@@ -10,7 +10,6 @@ const AIChat: React.FC = () => {
   >([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Initialize the Generative AI with the API key from environment variables
   const genAI = new GoogleGenerativeAI(
     process.env.NEXT_PUBLIC_GEMINI_API_KEY || ""
   );
@@ -51,18 +50,18 @@ const AIChat: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[87%] bg-gray-100 dark:bg-gray-800">
+    <div className="flex flex-col h-[70%] bg-gray-100 dark:bg-gray-800">
       {/* Header */}
       <div className="bg-blue-500 dark:bg-gray-900 p-4 text-white font-semibold text-lg text-center shadow-md">
         AI Chat Assistant
       </div>
 
       {/* Chat Window */}
-      <div className="flex-1  overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`flex  ${
+            className={`flex ${
               message.sender === "user" ? "justify-end" : "justify-start"
             }`}
           >
@@ -73,7 +72,8 @@ const AIChat: React.FC = () => {
                   : "bg-gray-300 text-black rounded-bl-none"
               }`}
             >
-              {message.content}
+              {/* Render message content with HTML */}
+              <div dangerouslySetInnerHTML={{ __html: message.content }}></div>
             </div>
           </div>
         ))}
@@ -92,7 +92,7 @@ const AIChat: React.FC = () => {
           type="text"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
-          onKeyDown={handleKeyDown} // Listen for the Enter key
+          onKeyDown={handleKeyDown}
           className="flex-1 p-3 rounded-l-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white outline-none"
           placeholder="Type your message..."
           disabled={loading}

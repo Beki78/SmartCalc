@@ -2,12 +2,11 @@
 import React, { useState } from "react";
 
 const Temperature: React.FC = () => {
-  const [inputValue, setInputValue] = useState<string>(""); // Input temperature value
-  const [inputUnit, setInputUnit] = useState<string>("Celsius"); // Unit to convert from
-  const [outputUnit, setOutputUnit] = useState<string>("Fahrenheit"); // Unit to convert to
-  const [result, setResult] = useState<string>(""); // Result of the conversion
+  const [inputValue, setInputValue] = useState<string>(""); 
+  const [inputUnit, setInputUnit] = useState<string>("Celsius"); 
+  const [outputUnit, setOutputUnit] = useState<string>("Fahrenheit"); 
+  const [result, setResult] = useState<string>(""); 
 
-  // Handle temperature conversion
   const handleConversion = () => {
     const value = parseFloat(inputValue);
     if (isNaN(value)) {
@@ -17,7 +16,6 @@ const Temperature: React.FC = () => {
 
     let convertedValue = value;
 
-    // Perform conversions based on selected units
     if (inputUnit === "Celsius" && outputUnit === "Fahrenheit") {
       convertedValue = value * (9 / 5) + 32;
     } else if (inputUnit === "Celsius" && outputUnit === "Kelvin") {
@@ -32,7 +30,6 @@ const Temperature: React.FC = () => {
       convertedValue = (value - 273.15) * (9 / 5) + 32;
     }
 
-    // If inputUnit and outputUnit are the same, return the same value
     if (inputUnit === outputUnit) {
       convertedValue = value;
     }
@@ -41,7 +38,7 @@ const Temperature: React.FC = () => {
   };
 
   return (
-    <div className="p-20 bg-gray-100 dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-gray-100 dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-xl font-bold mb-4 text-center dark:text-white">
         Temperature Converter
       </h2>
@@ -98,9 +95,9 @@ const Temperature: React.FC = () => {
 
       {/* Result Section */}
       {result && (
-        <div className="mt-4 p-2 bg-gray-200 rounded text-center">
-          <h3 className="font-medium">Result:</h3>
-          <p>{result}</p>
+        <div className="mt-4 p-2 bg-green-100 text-black rounded ">
+          <h3 className="font-medium">Result: {result}</h3>
+         
         </div>
       )}
     </div>

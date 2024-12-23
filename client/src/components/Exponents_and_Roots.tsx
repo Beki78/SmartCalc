@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { evaluate } from "mathjs"; // Import math.js for calculations
+import { evaluate } from "mathjs"; 
 
 const ExponentsAndRoots: React.FC = () => {
-  const [base, setBase] = useState<string>(""); // State for the base value
-  const [exponent, setExponent] = useState<string>(""); // State for exponent/root input
-  const [operation, setOperation] = useState<string>("exponent"); // Default to exponent
-  const [result, setResult] = useState<number | string>(""); // Result of the calculation
+  const [base, setBase] = useState<string>("");
+  const [exponent, setExponent] = useState<string>(""); 
+  const [operation, setOperation] = useState<string>("exponent"); 
+  const [result, setResult] = useState<number | string>("");
 
   const calculateResult = () => {
     try {
@@ -21,19 +21,20 @@ const ExponentsAndRoots: React.FC = () => {
 
       let calcResult;
       if (operation === "exponent") {
-        calcResult = evaluate(`${baseValue} ^ ${exponentValue}`); // Calculate exponent
+        calcResult = evaluate(`${baseValue} ^ ${exponentValue}`); 
       } else if (operation === "root") {
-        calcResult = evaluate(`nthRoot(${baseValue}, ${exponentValue})`); // Calculate root
+        calcResult = evaluate(`nthRoot(${baseValue}, ${exponentValue})`);
       }
 
       setResult(calcResult);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setResult("Error in Calculation");
     }
   };
 
   return (
-    <div className="p-20 bg-gray-100 dark:bg-gray-900 min-h-screen shadow-md ">
+    <div className="p-10 lg:p-20 bg-gray-100 dark:bg-gray-900 lg:min-h-screen shadow-md ">
       <h2 className="text-xl font-semibold mb-4 text-center dark:text-white">
         Exponents and Roots Calculator
       </h2>
@@ -73,7 +74,7 @@ const ExponentsAndRoots: React.FC = () => {
         </div>
 
         {/* Operation Selection */}
-        <div className="flex items-center space-x-4">
+        <div className="flex  items-center space-x-4">
           <label className="flex items-center dark:text-white">
             <input
               type="radio"
@@ -108,7 +109,7 @@ const ExponentsAndRoots: React.FC = () => {
 
         {/* Result Display */}
         {result !== "" && (
-          <div className="mt-4 p-2 bg-gray-200 dark:bg-gray-700 rounded text-center dark:text-white">
+          <div className="mt-4 p-2 bg-green-100 dark:bg-green-100 rounded text-center dark:text-black">
             <span className="font-medium ">Result:</span> {result}
           </div>
         )}

@@ -9,21 +9,21 @@ const Weight = () => {
   const [result, setResult] = useState("");
 
   const units: Units = {
-    kg: 1, // Base unit
-    g: 1000, // Grams
-    lb: 2.20462, // Pounds
-    oz: 35.274, // Ounces
-    mg: 1e6, // Milligrams
+    kg: 1, 
+    g: 1000, 
+    lb: 2.20462, 
+    oz: 35.274, 
+    mg: 1e6, 
   };
 
   const handleConversion = () => {
-    const valueInKg = parseFloat(inputValue) / units[fromUnit]; // Convert to kg
-    const convertedValue = valueInKg * units[toUnit]; // Convert to target unit
-    setResult(convertedValue.toFixed(4)); // Format result to 4 decimal places
+    const valueInKg = parseFloat(inputValue) / units[fromUnit];
+    const convertedValue = valueInKg * units[toUnit]; 
+    setResult(convertedValue.toFixed(4)); 
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-xl font-semibold mb-4 dark:text-white">
         Weight Converter
       </h2>
@@ -76,10 +76,9 @@ const Weight = () => {
       </button>
 
       <div className="mt-4">
-        <h3 className="text-lg font-semibold dark:text-white">Result:</h3>
-        <p className="dark:text-white">
-          {result ? `${result} ${toUnit}` : "Enter values to convert."}
-        </p>
+        <h3 className="text-lg p-3 rounded-md dark:text-black bg-green-100">
+          Result: {result ? `${result} ${toUnit}` : "Enter values to convert."}
+        </h3>
       </div>
     </div>
   );

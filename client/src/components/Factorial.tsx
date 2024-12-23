@@ -4,27 +4,27 @@ import React, { useState } from "react";
 import { factorial } from "mathjs";
 
 const Factorial: React.FC = () => {
-  const [number, setNumber] = useState<string>(""); // Input number
-  const [result, setResult] = useState<number | string>(""); // Result
+  const [number, setNumber] = useState<string>(""); 
+  const [result, setResult] = useState<number | string>("");
 
-  // Handle factorial calculation
   const calculateFactorial = () => {
     const parsedNumber = parseInt(number, 10);
     let ans;
     if (isNaN(parsedNumber) || parsedNumber < 0) {
-      setResult("Please enter a non-negative integer."); // Validation
+      setResult("Please enter a non-negative integer."); 
     } else {
       try {
-        ans = factorial(parsedNumber); // Calculate factorial
+        ans = factorial(parsedNumber);
         setResult(`${number} factorial == ${ans}`);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
-        setResult("Error: Number too large."); // Handle large number errors
+        setResult("Error: Number too large.");
       }
     }
   };
 
   return (
-    <div className=" mx-auto p-20 min-h-screen bg-white dark:bg-gray-900  shadow-md">
+    <div className=" mx-auto p-10 lg:p-20 lg:min-h-screen bg-white dark:bg-gray-900  shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-center dark:text-white">
         Factorial Calculator
       </h2>
@@ -49,7 +49,7 @@ const Factorial: React.FC = () => {
 
         {/* Result Display */}
         {result !== "" && (
-          <div className="mt-4 p-2 bg-gray-200 dark:bg-gray-700 rounded text-center dark:text-white">
+          <div className="mt-4 p-2 bg-green-100 dark:bg-green-100 rounded text-center dark:text-black">
             <span className="font-bold">Result:</span> {result}
           </div>
         )}

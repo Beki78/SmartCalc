@@ -1,34 +1,20 @@
 "use client";
 import React, { useState } from "react";
-import { create, all } from "mathjs";
-import { ConstantType } from "@/types/types";
-
-const math = create(all);
+import { constants, ConstantType } from "@/types/types";
 
 const Constants: React.FC = () => {
   const [result, setResult] = useState<string>("");
 
-  // Constants
-  const constants: ConstantType = {
-    pi: math.pi,
-    gravity: 9.81,
-    speedOfLight: 299792458, 
-    euler: math.e, 
-    plancksConstant: 6.62607015e-34, 
-    gravitationalConstant: 6.6743e-11, 
-    avogadro: 6.02214076e23, 
-    boltzmann: 1.380649e-23, 
-  };
-
-  // Handle the constant selection and calculation
   const handleConstantClick = (constant: keyof ConstantType) => {
-    setResult(
-      constants[constant] ? constants[constant].toString() : "Invalid constant"
-    );
+    const constantValue = constants[constant];
+    const constantName = constant.charAt(0).toUpperCase() + constant.slice(1);
+    const formattedResult = constantValue
+      ? `${constantName}: ${constantValue.toString()}`
+      : "Invalid constant";
+    setResult(formattedResult);
   };
-
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen">
       <h2 className="text-xl font-semibold mb-4 text-center dark:text-white">
         Mathematical Constants
       </h2>
@@ -59,13 +45,13 @@ const Constants: React.FC = () => {
             className="p-2 bg-blue-500 text-white rounded"
             onClick={() => handleConstantClick("euler")}
           >
-            Euler's Number (e)
+            Euler&apos;s Number (e)
           </button>
           <button
             className="p-2 bg-blue-500 text-white rounded"
             onClick={() => handleConstantClick("plancksConstant")}
           >
-            Planck's Constant (h)
+            Planck&apos;s Constant (h)
           </button>
           <button
             className="p-2 bg-blue-500 text-white rounded"
@@ -77,7 +63,7 @@ const Constants: React.FC = () => {
             className="p-2 bg-blue-500 text-white rounded"
             onClick={() => handleConstantClick("avogadro")}
           >
-            Avogadro's Number (N<sub>A</sub>)
+            Avogadro&apos;s Number (N<sub>A</sub>)
           </button>
           <button
             className="p-2 bg-blue-500 text-white rounded"
@@ -91,7 +77,7 @@ const Constants: React.FC = () => {
         <h3 className="text-lg font-semibold dark:text-white">
           Selected Constant Value:
         </h3>
-        <p className="dark:text-white">
+        <p className="dark:text-black bg-green-100 p-3 rounded-md">
           {result || "Select a constant to view its value."}
         </p>
       </div>

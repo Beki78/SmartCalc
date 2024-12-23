@@ -16,7 +16,6 @@ const ProfitMargin = () => {
       return;
     }
 
-    // Profit Margin formula: ((Selling Price - Cost Price) / Selling Price) * 100
     const profit = SP - CP;
     const profitMargin = (profit / SP) * 100;
 
@@ -26,7 +25,7 @@ const ProfitMargin = () => {
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-2xl font-semibold text-center mb-4 dark:text-white">
         Profit Margin Calculator
       </h2>
@@ -56,7 +55,7 @@ const ProfitMargin = () => {
       >
         Calculate
       </button>
-      <div className="mt-4 text-lg font-medium dark:text-white">
+      <div className="mt-4 bg-green-100 dark:text-black p-3 rounded-md">
         {result && <p>{result}</p>}
       </div>
     </div>

@@ -1,35 +1,31 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { create, all } from "mathjs";
 
 const math = create(all);
 
 const Statistics = () => {
-  const [inputValues, setInputValues] = useState<string>(""); // For user input
-  const [result, setResult] = useState<string>(""); // To display results
+  const [inputValues, setInputValues] = useState<string>("");
+  const [result, setResult] = useState<string>("");
 
-  // Calculate Statistics
   const calculateStatistics = () => {
     try {
-      // Parse input values into an array
       const values = inputValues
         .split(",")
         .map((val) => parseFloat(val.trim()))
-        .filter((num) => !isNaN(num)); // Remove invalid numbers
+        .filter((num) => !isNaN(num));
 
       if (values.length === 0) {
         setResult("Please enter valid numbers.");
         return;
       }
 
-      // Perform calculations
       const mean = math.mean(values);
       const median = math.median(values);
       const mode = math.mode(values);
       const variance = math.variance(values);
       const stdDev = math.std(values);
 
-      // Set results
       setResult(`
         Mean: ${Number(mean).toFixed(2)} 
         Median: ${Number(median).toFixed(2)} 
@@ -37,18 +33,21 @@ const Statistics = () => {
         Variance: ${Number(variance).toFixed(2)} 
         Standard Deviation: ${Number(stdDev).toFixed(2)}
       `);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setResult("An error occurred while calculating statistics.");
     }
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-center dark:text-white">
         Statistics Calculator
       </h2>
-      <div className="mb-4 dark:text-white">
-        <p>Enter a comma-separated list of numbers:</p>
+      <div className="mb-4 ">
+        <p className="dark:text-white">
+          Enter a comma-separated list of numbers:
+        </p>
         <input
           type="text"
           value={inputValues}
@@ -64,10 +63,12 @@ const Statistics = () => {
         Calculate
       </button>
       <div className="mt-4">
-        <h3 className="text-lg font-semibold dark:text-white">Results:</h3>
-        <pre className="dark:text-white">
-          {result || "Enter values and click 'Calculate' to see results."}
-        </pre>
+        <h3 className="bg-green-100 dark:text-black p-3 rounded-md">
+          Results:{" "}
+          <pre className=" ">
+            {result || "Enter values and click 'Calculate' to see results."}
+          </pre>
+        </h3>
       </div>
     </div>
   );

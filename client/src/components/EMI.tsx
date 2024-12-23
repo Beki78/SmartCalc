@@ -32,7 +32,7 @@ const EMI = () => {
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-2xl font-semibold mb-4 text-center dark:text-white">
         EMI Calculator
       </h2>
@@ -88,8 +88,7 @@ const EMI = () => {
       </div>
       {emi !== null && (
         <div className="mt-4 p-3 bg-green-100 border rounded">
-          <h3 className="text-lg font-medium">Your EMI:</h3>
-          <p className="text-xl font-semibold">₹{emi}</p>
+          <h3 className="">Your EMI: ₹{emi}</h3>
         </div>
       )}
     </div>

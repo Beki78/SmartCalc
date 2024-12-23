@@ -1,5 +1,4 @@
 import OptionGraph from "@/components/OptionGraph";
-import Options from "@/components/Options";
 import { Graph_Calculation_Options } from "@/libs/data";
 import React from "react";
 

@@ -5,7 +5,7 @@ import { log, log10, log2 } from "mathjs";
 
 const Logarithmic = () => {
   const [inputValue, setInputValue] = useState("");
-  const [baseValue, setBaseValue] = useState("10"); // Default base 10
+  const [baseValue, setBaseValue] = useState("10"); 
   const [result, setResult] = useState<string | null>(null);
 
   const handleCalculate = () => {
@@ -25,7 +25,7 @@ const Logarithmic = () => {
       } else if (base === 2) {
         calculatedValue = log2(input);
       } else {
-        calculatedValue = log(input, base); // Logarithm with any base
+        calculatedValue = log(input, base); 
       }
 
       setResult(
@@ -33,13 +33,14 @@ const Logarithmic = () => {
           6
         )}`
       );
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setResult("Error in calculation.");
     }
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-center dark:text-white">
         Logarithmic Calculator
       </h2>
@@ -106,7 +107,7 @@ const Logarithmic = () => {
         </button>
 
         {result && (
-          <div className="mt-4 p-2 bg-gray-200 dark:bg-gray-800 rounded-md dark:text-white">
+          <div className="mt-4 p-2 bg-green-100 dark:bg-green-100 rounded-md dark:text-black">
             <strong>Result: </strong> {result}
           </div>
         )}

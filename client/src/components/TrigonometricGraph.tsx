@@ -4,10 +4,8 @@ import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { create, all } from "mathjs";
 
-// Initialize math.js
 const math = create(all);
 
-// Define the type for chart data
 interface ChartData {
   labels: string[];
   datasets: {
@@ -20,27 +18,23 @@ interface ChartData {
 }
 
 const TrigonometricGraph = () => {
-  const [expression, setExpression] = useState<string>(""); // User input for trigonometric function
-  const [data, setData] = useState<ChartData | null>(null); // Data for the graph
-  const [error, setError] = useState<string | null>(null); // Error handling
+  const [expression, setExpression] = useState<string>(""); 
+  const [data, setData] = useState<ChartData | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handlePlotGraph = () => {
     try {
-      // Clear previous error
       setError(null);
 
-      // Generate x values from -2π to 2π
       const xValues = Array.from(
         { length: 500 },
         (_, i) => -2 * Math.PI + (i * 4 * Math.PI) / 499
       );
 
-      // Evaluate y values based on the user's trigonometric function
       const yValues = xValues.map((x) => math.evaluate(expression, { x }));
 
-      // Prepare the graph data
       setData({
-        labels: xValues.map((x) => x.toFixed(2)), // Format x values for readability
+        labels: xValues.map((x) => x.toFixed(2)), 
         datasets: [
           {
             label: `y = ${expression}`,
@@ -51,17 +45,17 @@ const TrigonometricGraph = () => {
           },
         ],
       });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
-      // Handle invalid input or evaluation errors
       setError(
         "Invalid function. Please enter a valid trigonometric expression (e.g., sin(x), cos(x), tan(x))."
       );
-      setData(null); // Reset data on error
+      setData(null); 
     }
   };
 
   return (
-    <div className="p-8 bg-white dark:bg-gray-900 min-h-screen">
+    <div className="p-8 bg-white dark:bg-gray-900 lg:min-h-screen">
       <h2 className="text-2xl font-semibold mb-4 text-center dark:text-white">
         Trigonometric Graph Plotter
       </h2>

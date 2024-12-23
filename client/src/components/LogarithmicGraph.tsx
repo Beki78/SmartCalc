@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { evaluate } from "mathjs";
 
-// Define the type for chart data
 interface ChartData {
   labels: number[];
   datasets: {
@@ -18,12 +17,12 @@ interface ChartData {
 
 const LogarithmicGraph = () => {
   const [logFunction, setLogFunction] = useState<string>("");
-  const [data, setData] = useState<ChartData | null>(null); // Allow data to be either ChartData type or null
+  const [data, setData] = useState<ChartData | null>(null); 
   const [error, setError] = useState<string>("");
 
   const generateGraph = () => {
     try {
-      setError(""); // Clear previous errors
+      setError("");
 
       if (!logFunction) {
         setError("Please enter a valid logarithmic function.");
@@ -31,10 +30,9 @@ const LogarithmicGraph = () => {
       }
 
       // Generate x values
-      const xValues = Array.from({ length: 100 }, (_, i) => i + 1); // x values from 1 to 100
+      const xValues = Array.from({ length: 100 }, (_, i) => i + 1); 
       const yValues = xValues.map((x) => evaluate(logFunction, { x }));
 
-      // Prepare data for the chart
       const chartData: ChartData = {
         labels: xValues,
         datasets: [
@@ -49,6 +47,7 @@ const LogarithmicGraph = () => {
       };
 
       setData(chartData);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError(
         "Invalid function! Please ensure you enter a valid logarithmic expression."
@@ -58,7 +57,7 @@ const LogarithmicGraph = () => {
   };
 
   return (
-    <div className="p-6 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-6 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-2xl font-semibold mb-4 text-center dark:text-white">
         Logarithmic Graph Plotter
       </h2>

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useStore } from "../store/store"; // Assuming you already have a store for theme management
+import { useStore } from "../store/store";
 import Link from "next/link";
 import { OptionsProps } from "@/types/types";
 

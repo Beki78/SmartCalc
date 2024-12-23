@@ -1,27 +1,53 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  CategoryScale,
+} from "chart.js";
 import { Line } from "react-chartjs-2";
 import { create, all } from "mathjs";
+import { ChartData } from "chart.js";
+
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  CategoryScale
+);
 
 const math = create(all);
 
-const AbsoluteValueGraph = () => {
-  const [expression, setExpression] = useState("");
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+const AbsoluteValueGraph: React.FC = () => {
+  const [expression, setExpression] = useState<string>(""); 
+  const [data, setData] = useState<ChartData<"line"> | null>(null); 
+  const [error, setError] = useState<string | null>(null); 
+
+  const parseExpression = (input: string): string => {
+    return input.replace(/\|([^|]+)\|/g, "abs($1)");
+  };
 
   const handlePlotGraph = () => {
     try {
       setError(null);
 
-      // Generate x values
-      const xValues = Array.from({ length: 200 }, (_, i) => -50 + i * 0.5); // Range: -50 to 50
+      const parsedExpression = parseExpression(expression);
+
+      const xValues = Array.from({ length: 200 }, (_, i) => -50 + i * 0.5);
+
       const yValues = xValues.map((x) =>
-        math.evaluate(expression.replace(/\|/g, "abs"), { x })
+        math.evaluate(parsedExpression, { x })
       );
 
-      // Set graph data
       setData({
         labels: xValues,
         datasets: [
@@ -34,6 +60,7 @@ const AbsoluteValueGraph = () => {
           },
         ],
       });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError(
         "Invalid function. Please enter a valid absolute value expression (e.g., |x|, |x - 2| + 3)."
@@ -42,7 +69,7 @@ const AbsoluteValueGraph = () => {
   };
 
   return (
-    <div className="p-8 bg-white dark:bg-gray-900 min-h-screen">
+    <div className="p-8 bg-white dark:bg-gray-900 lg:min-h-screen">
       <h2 className="text-2xl font-semibold mb-4 text-center dark:text-white">
         Absolute Value Graph Plotter
       </h2>

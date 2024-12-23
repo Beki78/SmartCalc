@@ -112,8 +112,4 @@ export const Graph_Calculation_Options = [
     name: "Absolute Value",
     path: "/absolute_value",
   },
-  {
-    name: "Polynomial",
-    path: "/polynomial",
-  },
 ];

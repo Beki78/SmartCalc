@@ -1,17 +1,16 @@
 "use client"
 
 import React, { useState } from "react";
-import { create, all } from "mathjs";
 
-const math = create(all);
+
+
 
 const Volume: React.FC = () => {
-  const [inputValue, setInputValue] = useState<string>(""); // Input value
-  const [fromUnit, setFromUnit] = useState<string>("liters"); // From unit
-  const [toUnit, setToUnit] = useState<string>("milliliters"); // To unit
-  const [result, setResult] = useState<string>(""); // Result
+  const [inputValue, setInputValue] = useState<string>("");
+  const [fromUnit, setFromUnit] = useState<string>("liters"); 
+  const [toUnit, setToUnit] = useState<string>("milliliters");
+  const [result, setResult] = useState<string>(""); 
 
-  // Conversion factors for volume units
   const conversionFactors: Record<string, number> = {
     liters: 1,
     milliliters: 1000,
@@ -39,7 +38,7 @@ const Volume: React.FC = () => {
   };
 
   return (
-    <div className="p-20 bg-white dark:bg-gray-900 min-h-screen shadow-md">
+    <div className="p-10 lg:p-20 bg-white dark:bg-gray-900 lg:min-h-screen shadow-md">
       <h2 className="text-xl font-semibold mb-4 dark:text-white">
         Volume Converter
       </h2>
@@ -94,12 +93,10 @@ const Volume: React.FC = () => {
         Convert
       </button>
       <div className="mt-4">
-        <h3 className="text-lg font-semibold dark:text-white">
-          Converted Value:
+        <h3 className=" p-3 rounded-md bg-green-100 dark:text-black ">
+          Converted Value:  {result || "Enter a value and select units to convert."}
         </h3>
-        <p className="dark:text-white">
-          {result || "Enter a value and select units to convert."}
-        </p>
+    
       </div>
     </div>
   );
