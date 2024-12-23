@@ -15,8 +15,6 @@ const AIChat: React.FC = () => {
   );
 
   const handleSend = async () => {
-    console.log("API Key:", process.env.NEXT_PUBLIC_GEMINI_API_KEY);
-
     if (!userInput.trim()) return;
 
     setMessages([...messages, { sender: "user", content: userInput }]);
